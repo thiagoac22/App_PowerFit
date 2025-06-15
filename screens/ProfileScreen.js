@@ -35,13 +35,13 @@ const ProfileScreen = () => {
   );
 
   const handleEditProfile = () => {
-  navigation.navigate('TelaEditProfileScreen', {
-    user,
-    onUpdateUser: (updatedUser) => {
-      setUser(updatedUser);
-    },
-  });
-};
+    navigation.navigate('TelaEditProfileScreen', {
+      user,
+      onUpdateUser: (updatedUser) => {
+        setUser(updatedUser);
+      },
+    });
+  };
   const openInstagram = () => {
     Linking.openURL(user.instagram).catch(() =>
       alert('Não foi possível abrir o Instagram')
@@ -87,7 +87,14 @@ const ProfileScreen = () => {
         <Text style={styles.buttonText}>✏️ Editar Perfil</Text>
       </TouchableOpacity>
 
-     
+      <TouchableOpacity style={styles.editButton} onPress={() => navigation.navigate('Pagamento')}>
+        <Text style={styles.buttonText}>🗓️ Planos</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.editButton} onPress={() => navigation.navigate('PagarMensalidade')}>
+        <Text style={styles.buttonText}>💰 Pagar Mensalidade</Text>
+      </TouchableOpacity>
+
 
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
         <Text style={[styles.buttonText, { color: '#fff' }]}>🚪 Sair</Text>

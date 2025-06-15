@@ -10,6 +10,10 @@ import RestTimerScreen from './screens/RestTimerScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RecommendationScreen from './screens/RecommendationScreen';
 import TelaEditProfileScreen from './screens/TelaEditProfileScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import MonthlyPayment from './screens/MonthlyPayment'; 
+import PaymentPix from './screens/PaymentPix';
+import PaymentCard from './screens/PaymentCard';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -27,9 +31,10 @@ function TabNavigator() {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="RestTimer" component={RestTimerScreen} options={{ tabBarLabel: 'Cronômetro' }} />
-      <Tab.Screen name="Profile" component={ProfileScreen}  options={{tabBarLabel: 'Perfil'}} />
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarLabel: 'Perfil' }} />
       <Tab.Screen name="Recommendation" component={RecommendationScreen} options={{ tabBarLabel: 'Recomendações' }} />
-    </Tab.Navigator>  );
+    </Tab.Navigator>
+  );
 }
 
 export default function App() {
@@ -37,10 +42,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
-        <Stack.Screen name="AddWorkout" component={AddWorkoutScreen} />
-        <Stack.Screen name="WorkoutList" component={WorkoutListScreen} />
-          <Stack.Screen name="TelaEditProfileScreen" component={TelaEditProfileScreen} options={{ title: 'Editar Perfil' }} />
-          <Tab.Screen name="Perfil" component={ProfileScreen} options={{ tabBarLabel: 'Perfil' }} />
+        <Stack.Screen name="AddWorkout" component={AddWorkoutScreen} options={{ title: 'Adicionar Treino' }} />
+        <Stack.Screen name="WorkoutList" component={WorkoutListScreen} options={{ title: 'Lista de Treinos' }} />
+        <Stack.Screen name="TelaEditProfileScreen" component={TelaEditProfileScreen} options={{ title: 'Editar Perfil' }} />
+        <Stack.Screen name="Pagamento" component={PaymentScreen} options={{ title: 'Pagamento' }} />
+        <Stack.Screen name="PagarMensalidade" component={MonthlyPayment} options={{ title: 'Pagar Mensalidade' }} />
+        <Stack.Screen name="PaymentPix" component={PaymentPix} options={{ title: 'Pagamento PIX' }} />
+        <Stack.Screen name="PaymentCard" component={PaymentCard} options={{ title: 'Pagamento Cartão' }} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
